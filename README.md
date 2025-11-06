@@ -6,7 +6,9 @@ O Armazenamento dos Artigos é feito em um Banco de Dados Postgres com uma exten
 
 ## 🔍 Observações
 Alguns dos pacotes até o momento se encontram em **Pre-release**.  
-Precisa do .NET 8.0+ e de uma [chave Api do Gemini](https://aistudio.google.com/welcome).
+Precisa do .NET 8.0+ e de uma [chave Api do Gemini](https://aistudio.google.com/welcome).  
+Arquivo pdf para testar funcionamento na **Pasta Asset**.
+Caso queira testar com pdf muito grande checar a capacidade do modelo de **Embedding** que estiver em uso.
 
 ## 🧰 Pacotes
 
@@ -35,3 +37,4 @@ POST ```http://localhost:5131/v1/artigo ``` end-point onde é feito o up-load de
 
 POST ```http://localhost:5131/v1/prompt``` end-point onde é passado o prompt com o questionamento sobre os arquivos salvos.
 
+# Em breve... um front-end em Next.
