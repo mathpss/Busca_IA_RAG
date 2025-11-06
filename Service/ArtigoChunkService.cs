@@ -22,25 +22,26 @@ namespace RagPdfApi.Service
         public async Task<List<ArtigoChunk>> GerarListaVetorizada(string texto)
         {
 
-                var listaArtigoChunk = new List<ArtigoChunk>();
+            var listaArtigoChunk = new List<ArtigoChunk>();
+            
             #pragma warning disable SKEXP0050 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.
-                var textChunk = TextChunker.SplitPlainTextLines(texto, 250 );
+                var textChunk = TextChunker.SplitPlainTextLines(texto, 250);
             #pragma warning restore SKEXP0050 // Type is for evaluation purposes only and is subject to change or removal in future updates. Suppress this diagnostic to proceed.            
 
-                if (textChunk != null)
+            if (textChunk != null)
+            {
+                foreach (var item in textChunk)
                 {
-                    foreach (var item in textChunk)
+                    var vetor = await _generator.GenerateVectorAsync(item);
+                    var artigoChunk = new ArtigoChunk
                     {
-                        var vetor = await _generator.GenerateVectorAsync(item);
-                        var artigoChunk = new ArtigoChunk
-                        {
-                            Vetor = new Pgvector.Vector(vetor),
-                            Conteudo = item
-                        };
-                        listaArtigoChunk.Add(artigoChunk);
-                    }
+                        Vetor = new Pgvector.Vector(vetor),
+                        Conteudo = item
+                    };
+                    listaArtigoChunk.Add(artigoChunk);
                 }
-                return listaArtigoChunk ?? throw new NullReferenceException("Parâmetro entrou vazio/nulo");
+            }
+            return listaArtigoChunk ?? throw new NullReferenceException("Parâmetro entrou vazio/nulo");
         }
     }
 }

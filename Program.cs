@@ -11,7 +11,9 @@ using RagPdfApi.Service;
 using RagPdfApi.Service.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
-
+///<summary>
+/// <param name="apiKey">Local onde deve ser passado a chave api.</param>
+/// 
 var apiKey = builder.Configuration["Gemini_Api"] ?? throw new NullReferenceException("Não encontrado a chave Gemini_Api");
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -39,8 +41,6 @@ builder.Services.AddTransient(x =>
         modelId:"gemini-2.0-flash-lite"
     )
 );
-
-
 
 var app = builder.Build();
 
@@ -94,7 +94,5 @@ app.MapPost("v1/prompt", async (
     return Results.Ok(reponseAI);
 
 });
-
-
 
 app.Run();
