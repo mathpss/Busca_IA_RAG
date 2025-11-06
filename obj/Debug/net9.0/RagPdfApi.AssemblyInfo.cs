@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RagPdfApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42f8fbfd1d74f6e7335c9d89d18413ec5c95edc1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ff7dbcb4b716d61b3f29e37fc871759d483418f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("RagPdfApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RagPdfApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
